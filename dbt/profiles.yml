@@ -1,0 +1,14 @@
+fabric_epex:
+  target: dev
+  outputs:
+    dev:
+      type: fabric
+      driver: 'ODBC Driver 18 for SQL Server'
+      server: "sfujla4hmukuxhyx7u5cjol6by-zkb5vb3jetiufbe7x2frppcvxi.datawarehouse.fabric.microsoft.com"  # <-- Fabric Lakehouse SQL Endpoint buraya
+      port: 1433
+      authentication: cli                   # az login ile auth
+      database: EpexLH        # <-- Lakehouse adın buraya (örn: EpexLH)
+      schema: dbo
+      retries: 1
+      connect_timeout: 10
+      login_timeout: 10

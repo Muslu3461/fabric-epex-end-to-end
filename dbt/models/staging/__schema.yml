@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_epex_spot_prices
+    description: EPEX Spot gün öncesi piyasa fiyat verisi (temizlenmiş ve zenginleştirilmiş)
+    columns:
+      - name: market
+        description: Piyasa kodu (ör. BE, DE-LU, NL)
+      - name: date
+        description: Fiyatın geçerli olduğu tarih
+      - name: start_time
+        description: Saatlik fiyat aralığının başlangıcı
+      - name: end_time
+        description: Saatlik fiyat aralığının sonu
+      - name: price_cent_kwh
+        description: Elektrik fiyatı (euro cent/kWh) — EUR/MWh / 10
+      - name: country
+        description: Piyasanın bulunduğu ülke
+      - name: region
+        description: Avrupa'daki bölge (West Europe, Scandinavia, vb.)

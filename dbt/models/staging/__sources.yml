@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: epex_spot_prices
+    schema: dbo
+    tables:
+      - name: epex_spot_prices
+        description: EPEX Spot gün öncesi (day-ahead) enerji fiyat verileri
+        columns:
+          - name: market
+            description: Fiyatın geçerli olduğu piyasa (ör. BE, DE-LU, NL)
+          - name: start_time
+            description: Fiyatın geçerli olmaya başladığı zaman damgası
+          - name: end_time
+            description: Fiyatın geçerliliğinin sona erdiği zaman damgası
+          - name: buy_volume
+            description: Bu fiyattaki alış emri hacmi (MWh)
+          - name: sell_volume
+            description: Bu fiyattaki satış emri hacmi (MWh)
+          - name: volume
+            description: Bu fiyattaki toplam işlem hacmi (MWh)
+          - name: price
+            description: Elektrik fiyatı (EUR/MWh)
