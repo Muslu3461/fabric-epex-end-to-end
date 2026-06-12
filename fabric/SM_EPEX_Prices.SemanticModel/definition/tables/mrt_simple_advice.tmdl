@@ -1,0 +1,88 @@
+table mrt_simple_advice
+	lineageTag: d044a7df-d022-44b0-9562-842e15df103f
+	sourceLineageTag: [dbo].[mrt_simple_advice]
+
+	column market
+		dataType: string
+		sourceProviderType: varchar(2048)
+		lineageTag: 3fb81c88-d9af-45e9-8a35-062cc9d1d16e
+		sourceLineageTag: market
+		summarizeBy: none
+		sourceColumn: market
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 8371714d-c61e-4721-80af-c3e711e333f7
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column hour_of_day
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7c753b99-c85b-4e26-9a49-17cb24deef76
+		sourceLineageTag: hour_of_day
+		summarizeBy: sum
+		sourceColumn: hour_of_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_time
+		dataType: string
+		sourceProviderType: nvarchar(10)
+		lineageTag: eb315dcb-afe1-45c8-94e0-6eaaf04e1573
+		sourceLineageTag: start_time
+		summarizeBy: none
+		sourceColumn: start_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_time
+		dataType: string
+		sourceProviderType: nvarchar(10)
+		lineageTag: 4eb5c56e-6333-416a-a0f8-5a29633ae38c
+		sourceLineageTag: end_time
+		summarizeBy: none
+		sourceColumn: end_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_cent_kwh
+		dataType: double
+		formatString: 0.00
+		sourceProviderType: float
+		lineageTag: 638419ec-2c2e-45e0-9acf-7bfd671777c4
+		sourceLineageTag: price_cent_kwh
+		summarizeBy: sum
+		sourceColumn: price_cent_kwh
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column simple_advice
+		dataType: string
+		sourceProviderType: varchar(17)
+		lineageTag: cf6195dc-637d-4945-b6d3-583d36997c69
+		sourceLineageTag: simple_advice
+		summarizeBy: none
+		sourceColumn: simple_advice
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mrt_simple_advice = entity
+		mode: directLake
+		source
+			entityName: mrt_simple_advice
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

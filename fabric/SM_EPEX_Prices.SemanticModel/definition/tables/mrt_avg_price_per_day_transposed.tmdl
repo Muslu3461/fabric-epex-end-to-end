@@ -1,0 +1,84 @@
+table mrt_avg_price_per_day_transposed
+	lineageTag: 09a7e986-7ecc-473f-a513-82ebfd22cb07
+	sourceLineageTag: [dbo].[mrt_avg_price_per_day_transposed]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ea7ca294-af64-473e-bbf9-6f84c848cef8
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column market_be
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1b6ff2fe-d870-469d-a357-0c029702919a
+		sourceLineageTag: market_be
+		summarizeBy: sum
+		sourceColumn: market_be
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_de_lu
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1e1dd480-a694-4ef6-820b-ea7eb78dc6be
+		sourceLineageTag: market_de_lu
+		summarizeBy: sum
+		sourceColumn: market_de_lu
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_fr
+		dataType: double
+		sourceProviderType: float
+		lineageTag: d436c9ca-5c5a-458c-b425-fb43373f24ed
+		sourceLineageTag: market_fr
+		summarizeBy: sum
+		sourceColumn: market_fr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_nl
+		dataType: double
+		sourceProviderType: float
+		lineageTag: bced2303-f125-4cae-95fa-0ff9780623ca
+		sourceLineageTag: market_nl
+		summarizeBy: sum
+		sourceColumn: market_nl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_no1
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0770e28d-73a7-4576-9bc3-ddd25356d6ba
+		sourceLineageTag: market_no1
+		summarizeBy: sum
+		sourceColumn: market_no1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition mrt_avg_price_per_day_transposed = entity
+		mode: directLake
+		source
+			entityName: mrt_avg_price_per_day_transposed
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

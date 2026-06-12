@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation PBI_ProTooling = ["WebModelingEdit"]
+
+ref table mrt_avg_price_per_day
+ref table mrt_avg_price_per_month
+ref table mrt_highest_price_per_day
+ref table mrt_lowest_price_per_day
+ref table mrt_avg_price_per_day_transposed
+ref table mrt_simple_advice
+

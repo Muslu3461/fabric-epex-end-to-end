@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "EpexReport"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2d6b5741-bd02-a3ee-493e-1360fee84e82"
+  }
+}

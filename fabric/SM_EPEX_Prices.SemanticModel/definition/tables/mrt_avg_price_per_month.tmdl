@@ -1,0 +1,88 @@
+table mrt_avg_price_per_month
+	lineageTag: 097a5ce2-0a59-4c1f-bb72-e0360b072e36
+	sourceLineageTag: [dbo].[mrt_avg_price_per_month]
+
+	column market
+		dataType: string
+		sourceProviderType: varchar(2048)
+		lineageTag: 78d3930d-a5cb-46ad-9352-2af7b632d94c
+		sourceLineageTag: market
+		summarizeBy: none
+		sourceColumn: market
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: 5cff61d6-0749-4110-ae6a-04d8600f6a34
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		sourceProviderType: varchar(14)
+		lineageTag: 3e4051ee-7986-4934-973c-add145241d55
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 751353e4-9744-4092-ba24-09a86d364319
+		sourceLineageTag: month
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name_short
+		dataType: string
+		sourceProviderType: nvarchar(8000)
+		lineageTag: cfef76ff-9503-46ac-bb4c-e8e349d05421
+		sourceLineageTag: month_name_short
+		summarizeBy: none
+		sourceColumn: month_name_short
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c4cbbb8d-48d6-489f-9653-7a30be267d90
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_month_price
+		dataType: double
+		formatString: 0.00
+		sourceProviderType: float
+		lineageTag: 8e8de696-b10d-417e-8bac-5eea304be4b6
+		sourceLineageTag: avg_month_price
+		summarizeBy: sum
+		sourceColumn: avg_month_price
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mrt_avg_price_per_month = entity
+		mode: directLake
+		source
+			entityName: mrt_avg_price_per_month
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

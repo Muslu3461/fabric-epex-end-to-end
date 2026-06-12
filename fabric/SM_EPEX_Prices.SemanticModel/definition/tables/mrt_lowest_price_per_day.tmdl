@@ -1,0 +1,79 @@
+table mrt_lowest_price_per_day
+	lineageTag: 09197291-3c13-4a3b-9d7a-363dae122d47
+	sourceLineageTag: [dbo].[mrt_lowest_price_per_day]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 858dac1b-3ff7-4b46-805d-3c4463d66191
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column market
+		dataType: string
+		sourceProviderType: varchar(2048)
+		lineageTag: 138c2ce3-5ba4-48b2-a9e6-c5d06eaee47b
+		sourceLineageTag: market
+		summarizeBy: none
+		sourceColumn: market
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_time
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: time
+		lineageTag: b82dbf95-3e0b-4907-9911-247935ebdbda
+		sourceLineageTag: start_time
+		summarizeBy: none
+		sourceColumn: start_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_time
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: time
+		lineageTag: 10a93d93-a969-4704-9414-541d4cdf6d0f
+		sourceLineageTag: end_time
+		summarizeBy: none
+		sourceColumn: end_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_cent_kwh
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 5d360ad5-fc4e-4cfb-a873-42375e69aef3
+		sourceLineageTag: price_cent_kwh
+		summarizeBy: sum
+		sourceColumn: price_cent_kwh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 59ba3cd1-6c87-4488-bbd2-64c5ac010d07
+		sourceLineageTag: rn
+		summarizeBy: sum
+		sourceColumn: rn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mrt_lowest_price_per_day = entity
+		mode: directLake
+		source
+			entityName: mrt_lowest_price_per_day
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

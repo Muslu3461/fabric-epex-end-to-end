@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SM_EPEX_Prices"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "83706422-f469-8897-4b3c-d3575881d0e9"
+  }
+}

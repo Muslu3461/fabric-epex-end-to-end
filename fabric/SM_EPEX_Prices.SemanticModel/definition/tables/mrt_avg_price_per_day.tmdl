@@ -1,0 +1,67 @@
+table mrt_avg_price_per_day
+	lineageTag: e35f62e9-57f4-45e9-89f8-c44e934a8488
+	sourceLineageTag: [dbo].[mrt_avg_price_per_day]
+
+	column market
+		dataType: string
+		sourceProviderType: varchar(2048)
+		lineageTag: 44ec8629-9383-4568-839a-e9d96907f380
+		sourceLineageTag: market
+		summarizeBy: none
+		sourceColumn: market
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		sourceProviderType: varchar(15)
+		lineageTag: a4658ae7-c7c9-4c48-897a-8f54f7540764
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		sourceProviderType: varchar(14)
+		lineageTag: 3a378393-724a-4e38-88f8-9d538a06b12a
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: bca0f6e3-5965-4a0d-8205-22807cb8ea32
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_day_price
+		dataType: double
+		formatString: 0.00
+		sourceProviderType: float
+		lineageTag: a1dcc555-892a-4070-b344-59a840b70ffd
+		sourceLineageTag: avg_day_price
+		summarizeBy: sum
+		sourceColumn: avg_day_price
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mrt_avg_price_per_day = entity
+		mode: directLake
+		source
+			entityName: mrt_avg_price_per_day
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
